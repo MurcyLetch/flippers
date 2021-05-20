@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "313423253758",
+    "project_id": "flippers-2e550",
+    "storage_bucket": "flippers-2e550.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313423253758:android:0c4486fda2c46427c295af",
+        "android_client_info": {
+          "package_name": "com.example.app1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313423253758-1iprr9sg6q7jsoen7sknubhsr70p66jc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC03yfUeS1CewaYk3bD99F76MJT2ja3d3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313423253758-1iprr9sg6q7jsoen7sknubhsr70p66jc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
