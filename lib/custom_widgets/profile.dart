@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:app1/session/session_management.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:app1/session/session_management.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -16,7 +17,7 @@ class _ProfileState extends State<Profile> {
   File _profileImage;
   String userId;
   CollectionReference reference =
-      FirebaseFirestore.instance.collection('users');
+  FirebaseFirestore.instance.collection('users');
 
   @override
   void initState() {
@@ -39,7 +40,7 @@ class _ProfileState extends State<Profile> {
             backgroundColor: Colors.grey,
             backgroundImage: _profileImage == null
                 ? NetworkImage(
-                    "https://k2partnering.com/wp-content/uploads/2016/05/Person.jpg")
+                "https://k2partnering.com/wp-content/uploads/2016/05/Person.jpg")
                 : FileImage(_profileImage),
             radius: 80,
           ),
@@ -95,26 +96,27 @@ class _ProfileState extends State<Profile> {
 
   void updateDB(String imageURL) async {
     Map<String, dynamic> updatedData = {
-      'image': imageURL,
+      "image": imageURL,
     };
     reference
         .doc(userId)
         .update(updatedData)
         .then(
           (_) => notifyUser(context, 'Profile picture updated successfully!'),
-        )
+    )
         .catchError(
           (onError) => notifyUser(context, onError),
-        );
+    );
   }
 
   void storeInServer() async {
-    Reference storage = FirebaseStorage.instance.ref('profile-pics/$userId.png');
+    Reference storage = FirebaseStorage.instance.ref(
+        'profile-pics/$userId.png');
     await storage
         .putFile(_profileImage)
         .then((_) async {
       String imageURL =
-          await storage.getDownloadURL();
+      await storage.getDownloadURL();
       updateDB(imageURL);
     }).catchError((onError) => notifyUser(context, onError));
   }
